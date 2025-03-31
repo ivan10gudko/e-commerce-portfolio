@@ -1,0 +1,37 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gelasio,wght@1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rasa:ital,wght@0,300..700;1,300..700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .hover-underline {
+      @apply relative after:content-[''] after:absolute after:w-full after:scale-0  after:block after:h-px  after:bg-black hover:after:scale-100 after:transition-all after:duration-200 after:delay-100 after:ease-linear;
+    }
+  }
+
+  span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: rgb(0, 0, 0);
+    margin: 0 0.5em;
+    opacity: 1;
+  }
+  
+  /* target all bullets */
+  .swiper-pagination-bullet {
+    background-color: rgb(0, 0, 0);
+    opacity: 0.3;
+    margin: 0 0.25em;
+  }
+
+  .swiper-thumbs .swiper-slide{
+    opacity: 0.5;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .swiper-thumbs .swiper-slide-thumb-active{
+    opacity: 1;
+    border: 1px solid black;
+  }
+
