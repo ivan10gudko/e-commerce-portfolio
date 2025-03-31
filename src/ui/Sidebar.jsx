@@ -35,12 +35,13 @@ function Sidebar({ categoryId,selectedCategories,setSelectedCategories }) {
       setSelectedCategories(prev=>[...prev,newId].filter(v=>v!==categoryId));
     }
   }
+  const isSelected = (id)=>selectedCategories.includes(id);
   return (
     <aside className="w-1/5 p-4 border-r text-lg font-urbanist">
       Categories:
-      <form className="flex flex-col accent-black ">
+      <form className="flex flex-col accent-black divide-y">
       {subcategoriesList.map((v) => (
-         v.id>=100 ?<Category key={v.id} id={v.id} selected={selectedCategories.includes(v.id)} name={v.name} onInput={handleChange}/> : <CategoryWithSubcategory key={v.id} id={v.id} selected={selectedCategories.includes(v.id)} name={v.name} onInput={handleChange}/>
+         v.id>=100 ?<Category key={v.id} id={v.id} selected={isSelected(v.id)} name={v.name} handleChange={handleChange}/> : <CategoryWithSubcategory key={v.id} id={v.id} name={v.name} handleChange={handleChange} selected={isSelected}/>
       ))}
       </form>
     </aside>
@@ -66,7 +67,7 @@ function SidebarCategory({ id, name, selected }) {
   );
 }
 
-function SubcategoryList({ id, selected }) {
+function SubcategoryList({ id, selected ,handleChange,isOpen}) {
   const {
     isLoading,
     data: subcategoriesList,
@@ -84,9 +85,9 @@ function SubcategoryList({ id, selected }) {
     return <ErrorProduct />;
   }
   return (
-    <form className="ml-6 ">
+    <form className={`ml-6 transition-all duration-150  divide-y ${isOpen ? "h-auto":"hidden"}`}>
       {subcategoriesList.map((v) => (
-         <Category key={v.id} id={v.id} selected={selected} name={v.name}/>
+         <Category key={v.id} id={v.id} selected={selected(v.id)} name={v.name} handleChange={handleChange}/>
       ))}
     </form>
   );
@@ -95,24 +96,27 @@ function SubcategoryList({ id, selected }) {
 function Category({id,selected,name,handleChange}){
   return (
     <div key={id} className="text-md my-1/2">
-    <input type="checkbox" checked={selected} value={v.id} id={v.id} onInput={handleChange} className="check"/>
-    <label className={`mx-3 ${selected?"underline":"no-underlineunderline"}`} htmlFor={id} >
+    <input type="checkbox" checked={selected} value={id} id={id} onInput={handleChange} className="check"/>
+    <label className={`mx-3 ${selected?"underline":"no-underlineunderline"}`} htmlFor={id}>
       {capitalizeFirstLetters(name)}
     </label>
   </div>
   )
 }
 
-function CategoryWithSubcategory({id,selected,name}){
+function CategoryWithSubcategory({id,selected,name,handleChange}){
+const [isOpen,setIsOpen] = useState(false);
+
   return (
     <div>
       <div  className="text-md my-1/2">
-          <input type="checkbox" checked={selected} value={id} id={id} />
-          <label className="mx-3 " htmlFor={id}>
+          <input type="checkbox" checked={selected(id)} value={id} id={id} onInput={handleChange} />
+          <label className="mx-3 " onClick={()=>setIsOpen(i => !i)}>
             {capitalizeFirstLetters(name)}
+            <ArrowDropUpIcon onClick={()=>setIsOpen(i => !i)}/>
           </label>
         </div>
-        <SubcategoryList id={id} selected={selected}/>
+        <SubcategoryList id={id} selected={selected} isOpen={isOpen} handleChange={handleChange}/>
       </div>
   )
 }

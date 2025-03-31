@@ -122,6 +122,7 @@ export async function getSubcategories(categoryId) {
     let { data, error } = await supabase
     .from("categories")
     .select("*")
+    .neq('id',0)
 
     if (error) {
       console.log(error);
