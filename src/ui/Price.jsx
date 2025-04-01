@@ -14,7 +14,7 @@ function Price({price,discountId,card}) {
     <>
       <h3 className={card ? `text-md text-black/70 font-urbanist`:`text-xl text-black/90 font-gelasio`}>
         <s className="text-black/70">${price}</s>
-        <span className="text-red-600/90 mx-4">${discountPrice} </span>
+        <span className="text-red-600/90 mx-2">${discountPrice} </span>
         <span className=" text-red-500/90 text-sm">({discount.percent}% off)</span>
       </h3>
       {!card ? <h3 className="text-red-500/90 text-md"> {discount.description}</h3> : null }

@@ -14,7 +14,7 @@ function Card({ id }) {
 
   if (isLoading) {
     return (
-      <div className="py-10 rounded-sm shadow-sm animate-pulse ">
+      <div className="py-10 rounded-sm shadow-sm animate-pulse hover:scale-105">
         <div
           className=" pb-[135%]  h-fit rounded overflow-hidden bg-gray-200
           relative
@@ -36,7 +36,7 @@ function Card({ id }) {
   if (error || !product) {
     console.log(product);
      return (
-       <div className="py-10 rounded-sm">
+       <div className="py-10 rounded-sm hover:scale-105">
          <div
            className=" pb-[135%]  h-fit rounded overflow-hidden bg-red-100/80 border-2 border-red-700  
            relative
@@ -61,7 +61,7 @@ function Card({ id }) {
   const { productId, image, price, name, discount } = product;
   
   return (
-    <div className="py-10 rounded-sm shadow-sm " onClick={()=>navigate(`/shop/product/${productId}`)}>
+    <div className="py-10 rounded-sm shadow-sm hover:scale-110 hover:shadow cursor-pointer " onClick={()=>navigate(`/shop/product/${productId}`)}>
       <figure
         className=" group relative pb-[135%]  h-fit rounded-sm overflow-hidden 
                             before:content-[''] before:absolute before:inset-0 before:bg-productGray before:z-0
