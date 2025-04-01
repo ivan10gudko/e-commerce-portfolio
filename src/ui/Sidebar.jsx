@@ -38,7 +38,7 @@ function Sidebar({ categoryId,selectedCategories,setSelectedCategories }) {
   const isSelected = (id)=>selectedCategories.includes(id);
   return (
     <aside className="w-1/5 p-4 border-r text-lg font-urbanist">
-      Categories:
+      <span className="text-xl font-semibold">Categories:</span>
       <form className="flex flex-col accent-black divide-y">
       {subcategoriesList.map((v) => (
          v.id>=100 ?<Category key={v.id} id={v.id} selected={isSelected(v.id)} name={v.name} handleChange={handleChange}/> : <CategoryWithSubcategory key={v.id} id={v.id} name={v.name} handleChange={handleChange} selected={isSelected}/>
@@ -95,7 +95,7 @@ function SubcategoryList({ id, selected ,handleChange,isOpen}) {
 
 function Category({id,selected,name,handleChange}){
   return (
-    <div key={id} className="text-md my-1/2">
+    <div key={id} className="text-md my-1/2 hover:scale-95 duration-75">
     <input type="checkbox" checked={selected} value={id} id={id} onInput={handleChange} className="check"/>
     <label className={`mx-3 ${selected?"underline":"no-underlineunderline"}`} htmlFor={id}>
       {capitalizeFirstLetters(name)}
@@ -109,11 +109,11 @@ const [isOpen,setIsOpen] = useState(false);
 
   return (
     <div>
-      <div  className="text-md my-1/2">
+      <div  className="text-md my-1/2 hover:border-b hover:border-black/80 duration-75 hover:scale-95" onClick={()=>setIsOpen(i=>!i)}>
           <input type="checkbox" checked={selected(id)} value={id} id={id} onInput={handleChange} />
-          <label className="mx-3 " onClick={()=>setIsOpen(i => !i)}>
+          <label className="mx-3">
             {capitalizeFirstLetters(name)}
-            <ArrowDropUpIcon onClick={()=>setIsOpen(i => !i)}/>
+            <ArrowDropUpIcon className={`transition-transform ${isOpen ? "rotate-0" : "rotate-180"}`}/>
           </label>
         </div>
         <SubcategoryList id={id} selected={selected} isOpen={isOpen} handleChange={handleChange}/>
