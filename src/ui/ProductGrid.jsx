@@ -14,7 +14,7 @@ function ProductGrid({selectedCategories}) {
        }else if(window.innerWidth>=1280){
            return 54;
        }else{
-           return 24
+           return 24;
        }
    },[])
 
@@ -36,7 +36,7 @@ function ProductGrid({selectedCategories}) {
       }
       
     return ( 
-        <div className="grid grid-cols-4 gap-x-6 pl-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-6 pl-6">
           {products.slice(paginationPosition.start , paginationPosition.end).map(v=><Card key={v.productId} id={v.productId} />)}
           <ProductPagination products={products} paginationPosition={paginationPosition} setPaginationPosition={setPaginationPosition} slidesPerView={SLIDES_PER_VIEW}/>
         </div>

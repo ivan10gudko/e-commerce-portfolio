@@ -1,8 +1,5 @@
 import { BounceLoader } from "react-spinners";
 import { useProductCard } from "../hooks/useProductCard";
-import Error from "./Error";
-import CartItemPrice from "./CartItemPrice";
-import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import { ErrorOutline } from "@mui/icons-material";
 import Price from "./Price";
 import { useNavigate } from "react-router";

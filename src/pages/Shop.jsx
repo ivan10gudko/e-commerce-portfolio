@@ -7,12 +7,16 @@ import Sidebar from "../ui/Sidebar";
 import FilterBar from "../ui/FilterBar";
 import ProductGrid from "../ui/ProductGrid";
 import { useEffect, useState } from "react";
+import useWindowDimensions from "../services/useWindowDimensions";
 
 function Shop() {
     const params = useParams();
     const [selectedCategories, setSelectedCategories] = useState([]);
     const { isLoading, category, error } = useCategory(params.categoryName);
+    const {width} = useWindowDimensions();
+    const [sidebarOpen,setSidebarOpen] = useState(width>640);
 
+    useEffect(()=>setSidebarOpen(width>640),[width])
     useEffect(()=>{
         if(!isLoading) setSelectedCategories([category.id])
     } ,[category,isLoading])
@@ -35,10 +39,10 @@ function Shop() {
     </div>
     <img src={image} className="md:h-[50vh] w-full h-auto md:w-auto"/>
     </section>
-    <div className="flex mx-10 lg:mx-14 mt-10 border-y bg-productGray">
-      <Sidebar selectedCategories={selectedCategories} categoryId={id} setSelectedCategories={setSelectedCategories}/>
-      <div className="w-4/5">
-        <FilterBar />
+    <div className="flex mx-2 md:mx-10 lg:mx-14 mt-10 border-y bg-productGray relative">
+     {sidebarOpen ? <Sidebar selectedCategories={selectedCategories} categoryId={id} setSelectedCategories={setSelectedCategories} setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen}/>: null} 
+      <div className="md:w-4/5">
+        <FilterBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
         <ProductGrid selectedCategories={selectedCategories}/>
       </div>
     </div>

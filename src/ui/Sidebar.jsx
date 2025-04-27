@@ -6,8 +6,10 @@ import { capitalizeFirstLetters } from "../utils/String";
 import { useState } from "react";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import CloseIcon from '@mui/icons-material/Close';
+import Button from "./Button";
 
-function Sidebar({ categoryId,selectedCategories,setSelectedCategories }) {
+function Sidebar({ categoryId,selectedCategories,setSelectedCategories,setSidebarOpen ,SidebarOpen}) {
   const {
     isLoading,
     data: subcategoriesList,
@@ -37,14 +39,19 @@ function Sidebar({ categoryId,selectedCategories,setSelectedCategories }) {
   }
   const isSelected = (id)=>selectedCategories.includes(id);
   return (
-    <aside className="w-1/5 p-4 border-r text-lg font-urbanist">
-      <span className="text-xl font-semibold">Categories:</span>
+    <aside className="w-full border absolute z-50 md:static md:w-1/5 p-4 md:border-r text-lg font-urbanist bg-productGray">
+      <div className="flex justify-between">
+        <span className="text-xl font-semibold ">Categories:</span>
+        <span onClick={()=>setSidebarOpen(false)} className="md:hidden" ><CloseIcon/></span>
+      </div>
       <form className="flex flex-col accent-black divide-y">
       {subcategoriesList.map((v) => (
          v.id>=100 ?<Category key={v.id} id={v.id} selected={isSelected(v.id)} name={v.name} handleChange={handleChange}/> : <CategoryWithSubcategory key={v.id} id={v.id} name={v.name} handleChange={handleChange} selected={isSelected}/>
       ))}
+
+      <Button action={()=>setSidebarOpen(v=>!v)} type="fill" className="md:hidden mt-3" bgColor="black" color="white" >Apply</Button>
       </form>
-    </aside>
+  </aside>
   );
 }
 
