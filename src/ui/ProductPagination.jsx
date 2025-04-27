@@ -4,6 +4,7 @@ import {
 } from "@mui/icons-material";
 import Button from "./Button";
 import { memo, useMemo } from "react";
+import { Pagination } from "swiper/modules";
 
 
 function ProductPagination({
@@ -45,12 +46,21 @@ function ProductPagination({
     //       : p.end - slidesPerView,
     // }));
   }
+  function handleSetCurrent(index){
+    const start = index * slidesPerView;
+    let end = start + slidesPerView;
+    end = end >= products.length ? products.length+1 : end;
+    setPaginationPosition({start:start,end:end});
+  }
 
   return (
-    <div className="w-full flex">
+    <div className="w-full flex items-center justify-center col-span-full py-2 ">
       <Button action={handlePrev} type="text-only">
         <NavigateBeforeRounded fontSize="large" />
       </Button>
+      {Array.from({length:Math.ceil(products.length / slidesPerView)},(v,i) => i).map((el)=>{
+      return <span className={"text-black text-lg font-urbanist  rounded-sm  cursor-pointer px-4 mx-[1px] hover:border hover:mx-0 "+(paginationPosition.start == slidesPerView*el ?" border-black border disabled: mx-0":"")} key={el} onClick={()=>handleSetCurrent(el)} >{el+1}</span>
+      })}
       <Button action={handleNext} type="text-only">
         <NavigateNextRounded fontSize="large" />
       </Button>
