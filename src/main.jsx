@@ -8,6 +8,7 @@ import Shop from "./pages/Shop.jsx";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ProductPage from "./pages/ProductPage.jsx";
 import Cart from "./pages/Cart.jsx";
+import Checkout from "./pages/Checkout.jsx";
 
 const queryClient  = new QueryClient();
 
@@ -21,6 +22,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="shop/:categoryName" element={<Shop />} />
         <Route path="shop/product/:productId" element={<ProductPage/>}/>
         <Route path="cart" element={<Cart/>}/>
+        <Route path="checkout" element={<Checkout/>}/>
       </Route>
     </Routes>
   </BrowserRouter>
