@@ -22,8 +22,8 @@ createRoot(document.getElementById("root")).render(
         <Route path="shop/:categoryName" element={<Shop />} />
         <Route path="shop/product/:productId" element={<ProductPage/>}/>
         <Route path="cart" element={<Cart/>}/>
-        <Route path="checkout" element={<Checkout/>}/>
       </Route>
+      <Route path="checkout" element={<Checkout/>}/>
     </Routes>
   </BrowserRouter>
   <ReactQueryDevtools initialIsOpen={false} />
