@@ -9,11 +9,12 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ProductPage from "./pages/ProductPage.jsx";
 import Cart from "./pages/Cart.jsx";
 import Checkout from "./pages/Checkout.jsx";
-
+import { CartProvider } from "./context/CartContext.jsx"
 const queryClient  = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
 <QueryClientProvider client = {queryClient}>
+  <CartProvider >
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
@@ -26,6 +27,7 @@ createRoot(document.getElementById("root")).render(
       <Route path="checkout" element={<Checkout/>}/>
     </Routes>
   </BrowserRouter>
+  </CartProvider>
   <ReactQueryDevtools initialIsOpen={false} />
   </QueryClientProvider>
 );
