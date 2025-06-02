@@ -7,7 +7,7 @@ export default function Checkout(){
     return(<>
         <CheckoutHeader/>
         <div className="flex ">
-        <div className="px-4 md:px-14 lg:pl-20 lg:pr-10 py-8 border w-full lg:w-3/5">
+        <div className="px-4 md:px-14 lg:pl-20 lg:pr-10 pt-8 border w-full lg:w-3/5">
         <CheckoutForm/>
         <CheckoutFooter/>
         </div>

@@ -1,8 +1,10 @@
+import { Payment, RememberMe } from "@mui/icons-material";
 import Button from "./Button";
 import Checkbox from "./Checkbox";
 import CountrySelect from "./ContrySelect";
 import Fieldset from "./Fieldset";
 import Input from "./Input";
+import PaymentSelect from "./PaymentSelect";
 
 function CheckoutForm() {
     return ( 
@@ -28,6 +30,13 @@ function CheckoutForm() {
             <Checkbox name="save-form-data">Save this information for next time</Checkbox>
             <Checkbox name="news-subscription">Text me with news and offers</Checkbox>
             </Fieldset>
+            <Fieldset title="Payment">
+                <PaymentSelect>
+                </PaymentSelect>
+            </Fieldset>
+            <div className="mb-8 mt-6">
+            <Checkbox checked={true} name="remember-me">Remember me</Checkbox>
+            </div>
             <Button type="fill" bgColor="black" color="white" className="w-full py-4 text-xl font-semibold">Pay now</Button>
         </form>
     );
