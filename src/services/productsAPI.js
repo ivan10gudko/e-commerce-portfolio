@@ -194,9 +194,8 @@ export async function getProductsForCategory(selectedCategories) {
     console.log(error);
     throw new Error("product cant be uploated");
   }
-
-  console.log(data);
-  return [...new Set(data)];
+  
+  return [...new Set(data.map(i => i.productId))];
 }
 
 // export async function getProductsForCategory(id) {
