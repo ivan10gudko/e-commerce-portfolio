@@ -11,9 +11,11 @@ import Cart from "./pages/Cart.jsx";
 import Checkout from "./pages/Checkout.jsx";
 import { CartProvider } from "./context/CartContext.jsx"
 import CheckoutSuccess from "./pages/CheckoutSuccess.jsx";
+import ErrorBoundary from "./ErrorBoundary.jsx";
 const queryClient  = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
+<ErrorBoundary>
 <QueryClientProvider client = {queryClient}>
   <CartProvider >
   <BrowserRouter>
@@ -32,4 +34,5 @@ createRoot(document.getElementById("root")).render(
   </CartProvider>
   <ReactQueryDevtools initialIsOpen={false} />
   </QueryClientProvider>
+  </ErrorBoundary>
 );

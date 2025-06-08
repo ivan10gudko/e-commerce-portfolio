@@ -1,5 +1,10 @@
 import supabase from "./supabase";
 
+export const SORT_OPTIONS = {
+  popular: { field: "popularity", direction: "desc", label: "Популярність" },
+  price_asc: { field: "price", direction: "asc", label: "Ціна: від найнижчої" },
+  price_desc: { field: "price", direction: "desc", label: "Ціна: від найвищої" },
+};
 export async function getProduct(id) {
   let { data, error } = await supabase.from("product").select("*").eq("id", id);
 

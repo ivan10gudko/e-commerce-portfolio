@@ -6,15 +6,15 @@ import Button from "./Button";
 import { memo, useMemo } from "react";
 import { Pagination } from "swiper/modules";
 
-
+function scrollUp(){
+    window.scrollTo({top:400,behavior:"smooth"});
+  }
 function ProductPagination({
   products,
   paginationPosition,
   setPaginationPosition,
   slidesPerView,
 }) {
-
-    
 
   function handleNext() { 
     const {start , end} = paginationPosition;
@@ -25,16 +25,19 @@ function ProductPagination({
     } else{
         setPaginationPosition({start:start + slidesPerView, end: end + slidesPerView})
     }
+    scrollUp();
   }
   function handlePrev() {
     const {start , end} = paginationPosition;
     if(start==0){
-       return;
+      return;
     }else if(start-slidesPerView <= 0 ){
-        setPaginationPosition({start:0, end: products.length <= slidesPerView ? products.length + 1 : slidesPerView})
+      setPaginationPosition({start:0, end: products.length <= slidesPerView ? products.length + 1 : slidesPerView})
     } else{
-        setPaginationPosition({start:start - slidesPerView, end: end - slidesPerView})
+      setPaginationPosition({start:start - slidesPerView, end: end - slidesPerView})
     }
+    
+    scrollUp()
 
     // setPaginationPosition((p) => ({
     //   start: p.start - slidesPerView+1 < 0 ? 0 : p.start - slidesPerView+1,
@@ -51,6 +54,7 @@ function ProductPagination({
     let end = start + slidesPerView;
     end = end >= products.length ? products.length+1 : end;
     setPaginationPosition({start:start,end:end});
+    scrollUp();
   }
 
   return (

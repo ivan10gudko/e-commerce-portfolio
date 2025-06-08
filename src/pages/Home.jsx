@@ -20,7 +20,7 @@ function Home() {
         defPicture="/img/hero-section.png"
         pos="end"
       />
-      <div className=" text-center font-surveyor tracking-wide flex flex-col items-center w-full h-fit py-20 px-10\ justify-center">
+      <div className=" text-center font-surveyor tracking-wide flex flex-col items-center w-full h-fit py-20 px-16 justify-center">
         <h2 className=" text-3xl sm:text-4xl">Design Inspires</h2>
         <br />
         <h6 className="font-urbanist text-black/75 mb-2 px-8">

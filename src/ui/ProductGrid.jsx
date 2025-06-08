@@ -12,7 +12,7 @@ function ProductGrid({selectedCategories}) {
        if(window.innerWidth>=768 && window.innerWidth<1024){
            return 21;
        }else if(window.innerWidth>=1280){
-           return 54;
+           return 52;
        }else{
            return 24;
        }
@@ -27,7 +27,9 @@ function ProductGrid({selectedCategories}) {
 
 
       if (isLoading) {
-        return <BounceLoader />;
+        return <div className=" w-full h-full flex items-center justify-center">
+          <BounceLoader />
+          </div>
       }
     
       if (error || !products) {

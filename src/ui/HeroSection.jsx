@@ -14,7 +14,7 @@ function HeroSection({
   largeFont,
 }) {
   return (
-    <div className="w-full h-fit  relative">
+    <div className="w-full h-fit relative">
       <picture className="w-full">
         {pictures.map((source, i) => (
           <source
@@ -26,7 +26,7 @@ function HeroSection({
         <img src={defPicture} />
       </picture>
       <div
-        className={`flex w-full h-full absolute top-0 left-0 bottom-0 right-0 z-1  px-12 justify-center${
+        className={`flex w-full h-full absolute top-0 left-0 bottom-0 right-0 z-1  px-16 justify-center${
           pos === "end" ? " sm:justify-end" : " sm:justify-center"
         } items-center`}
       >

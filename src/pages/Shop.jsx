@@ -8,6 +8,7 @@ import FilterBar from "../ui/FilterBar";
 import ProductGrid from "../ui/ProductGrid";
 import { useEffect, useState } from "react";
 import useWindowDimensions from "../services/useWindowDimensions";
+import { SORT_OPTIONS } from "../services/productsAPI";
 
 function Shop() {
     const params = useParams();
@@ -17,6 +18,14 @@ function Shop() {
     
     const {width} = useWindowDimensions();
     const [sidebarOpen,setSidebarOpen] = useState(width>640);
+
+    const [sortOption, setSortOption] = useState("popular");
+    const handleSortChange = (newSort) => {
+      searchParams.set("sort", newSort);
+      setSearchParams(searchParams);
+    };
+
+
     //adaptive 
     useEffect(()=>setSidebarOpen(width>640),[width])
 
@@ -42,6 +51,13 @@ function Shop() {
           setSearchParams(searchParams);
         }
       }, [selectedCategories]);
+      //sorting doesn`t work because of db structure
+      useEffect(() => {
+      const sortParam = searchParams.get("sort");
+      if (sortParam && SORT_OPTIONS[sortParam]) {
+        setSortOption(sortParam);
+      }
+    }, [searchParams]);
 
     if (isLoading) {
         return <div className=" w-full h-full flex items-center justify-center">
@@ -66,8 +82,8 @@ function Shop() {
     <div className="flex mx-2 md:mx-10 lg:mx-14 mt-10 border-y bg-productGray relative">
      {sidebarOpen ? <Sidebar selectedCategories={selectedCategories} categoryId={id} setSelectedCategories={setSelectedCategories} setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen}/>: null} 
       <div className="md:w-4/5">
-        <FilterBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-        <ProductGrid selectedCategories={selectedCategories}/>
+        <FilterBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} handleSortChange={handleSortChange} sortOption={sortOption}/>
+        <ProductGrid selectedCategories={selectedCategories} sortOption={sortOption}/>
       </div>
     </div>
       

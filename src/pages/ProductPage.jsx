@@ -47,7 +47,11 @@ function ProductPage() {
   },[attrChange]);
 
   if (isLoading) {
-    return <BounceLoader />;
+    return (
+      <div className="flex justify-center items-center h-screen w-full">
+        <BounceLoader />
+      </div>
+    )
   }
 
   if (error || !product) {
