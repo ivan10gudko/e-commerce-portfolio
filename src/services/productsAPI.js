@@ -62,10 +62,10 @@ export async function getDiscount(id) {
 
 export async function getVariantId(productId, selectedAttributes) {
   let { data, error } = await supabase
-    .from("product_variants")
+    .from("variants")
     .select("id")
     .eq("productId", productId)
-    .eq("selectedAttributes", selectedAttributes);
+    .eq("selectedAtributes", selectedAttributes);
 
   if (error) {
     console.log(error);
@@ -76,11 +76,10 @@ export async function getVariantId(productId, selectedAttributes) {
 }
 export async function getVariant(productId, selectedAttributes) {
   let { data, error } = await supabase
-    .from("product_variants")
+    .from("variants")
     .select("*")
     .eq("productId", productId)
-    .eq("selectedAttributes", JSON.stringify(selectedAttributes));
-
+    .eq("selectedAtributes", JSON.stringify(selectedAttributes));
   if (error) {
     console.log(error);
     throw new Error("product cant be uploated");
