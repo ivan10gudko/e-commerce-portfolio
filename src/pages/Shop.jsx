@@ -11,15 +11,37 @@ import useWindowDimensions from "../services/useWindowDimensions";
 
 function Shop() {
     const params = useParams();
+    let [searchParams,setSearchParams] = useSearchParams();
     const [selectedCategories, setSelectedCategories] = useState([]);
     const { isLoading, category, error } = useCategory(params.categoryName);
+    
     const {width} = useWindowDimensions();
     const [sidebarOpen,setSidebarOpen] = useState(width>640);
-
+    //adaptive 
     useEffect(()=>setSidebarOpen(width>640),[width])
+
     useEffect(()=>{
         if(!isLoading) setSelectedCategories([category.id])
     } ,[category,isLoading])
+    //reading selectedCategories from state
+    useEffect(() => {
+        if (!isLoading && category) {
+          const fromUrl = searchParams.get("categories");
+          if (fromUrl) {
+            setSelectedCategories(fromUrl.split(",").map(Number));
+          } else {
+            setSelectedCategories([category.id]);
+          }
+        }
+      }, [category, isLoading, searchParams]);
+    
+      //updating url after changing selectedCategories state
+      useEffect(() => {
+        if (selectedCategories.length > 0) {
+          searchParams.set("categories", selectedCategories.join(","));
+          setSearchParams(searchParams);
+        }
+      }, [selectedCategories]);
 
     if (isLoading) {
         return <BounceLoader />;
