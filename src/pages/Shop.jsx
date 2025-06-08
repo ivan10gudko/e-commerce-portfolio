@@ -44,7 +44,9 @@ function Shop() {
       }, [selectedCategories]);
 
     if (isLoading) {
-        return <BounceLoader />;
+        return <div className=" w-full h-full flex items-center justify-center">
+          <BounceLoader />
+          </div>
       }
     
       if (error || !category) {

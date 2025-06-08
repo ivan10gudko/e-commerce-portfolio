@@ -20,7 +20,7 @@ function Navigation() {
       <nav className="flex w-full py-6 px-2 justify-around items-center border-b-[1px] border-b-slate-100 ">
         <div className="hidden md:flex md:gap-6">
           <NavLink
-            to="shop"
+            to="shop/shop all"
             className="font-extrabold text-sm font-urbanist hover-underline "
             onMouseEnter={openSuperNav}
           >
