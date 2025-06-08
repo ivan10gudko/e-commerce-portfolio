@@ -60,7 +60,7 @@ function SidebarCategory({ id, name, selected }) {
 
   return (
     <div className="w-full my-1">
-      <input type="checkbox" checked={selected} value={id} id={id} />
+      <input type="checkbox" defaultChecked={selected} value={id} id={id} />
       <label className="mx-3 font-medium  justify-between" htmlFor={id}>
         {capitalizeFirstLetters(name)}
         <KeyboardArrowDownIcon

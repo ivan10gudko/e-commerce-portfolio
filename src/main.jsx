@@ -10,6 +10,7 @@ import ProductPage from "./pages/ProductPage.jsx";
 import Cart from "./pages/Cart.jsx";
 import Checkout from "./pages/Checkout.jsx";
 import { CartProvider } from "./context/CartContext.jsx"
+import CheckoutSuccess from "./pages/CheckoutSuccess.jsx";
 const queryClient  = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
@@ -25,6 +26,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="cart" element={<Cart/>}/>
       </Route>
       <Route path="checkout" element={<Checkout/>}/>
+      <Route path="checkout/success" element={<CheckoutSuccess/>}/>
     </Routes>
   </BrowserRouter>
   </CartProvider>

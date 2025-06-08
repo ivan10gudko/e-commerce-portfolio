@@ -8,7 +8,7 @@ import ScrollToTop from "./ui/ScrollToTop.jsx"
 function App() {
   return(
   <>
-  <ScrollToTop/>
+    <ScrollToTop/>
     <Navigation />
     <main className="bg-productGray">
       <Outlet></Outlet>

@@ -14,15 +14,15 @@ const countries = [
   "Yemen", "Zambia", "Zimbabwe"
 ];
 
-export default function CountrySelect() {
-  const [selectedCountry, setSelectedCountry] = useState("");
+export default function CountrySelect({handleChange,selectedCountry}) {
+  //const [selectedCountry, setSelectedCountry] = useState("");
 
   return (
     <select
     id="country"
     name="country"
     value={selectedCountry}
-    onChange={(e) => setSelectedCountry(e.target.value)}
+    onChange={(e) => handleChange(e.target.value)}
     className="block w-full border border-gray-300 rounded-md shadow-sm px-4 py-3 pr-10 text-base text-black/90 focus:outline-none focus:ring-2 focus:ring-slate-700 focus:border-slate-ring-slate-700 appearance-none "
   >
   

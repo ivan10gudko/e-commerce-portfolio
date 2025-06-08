@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import { useCart } from "../context/CartContext";
 import CheckoutItemCard from "./CkeckoutItemCard";
-const DiliveryPrice = 56
-function CheckoutProducts() {
+
+function CheckoutProducts({deliveryPrice}) {
   let { products } = useCart();
   const subtotal = useMemo(() => {
     return products.reduce(
@@ -20,10 +20,10 @@ function CheckoutProducts() {
           Subtotal <span className="font-normal">${subtotal}</span>
         </div>
         <div>
-          Delivery <span className="font-normal">${DiliveryPrice}</span>
+          Delivery <span className="font-normal">${deliveryPrice}</span>
         </div>
         <div className="text-xl font-bold mt-4">
-          Total <span>${subtotal+DiliveryPrice}</span>
+          Total <span>${subtotal+deliveryPrice}</span>
         </div>
       </div>
     </div>

@@ -78,7 +78,7 @@ function FeaturedProducts() {
           return (
             <SwiperSlide key={i}>
               <Card
-                id={product.productId}
+                id={product}
               />
             </SwiperSlide>
           );

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useCart } from "../context/CartContext";
 import CartItem from "../ui/CartItem";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Button from "../ui/Button";
 import Subtotal from "./Subtotal";
 
@@ -45,12 +45,14 @@ function Cart() {
 }
 
 function CheckButton() {
+  let navigate = useNavigate();
+
   return (
     <Button
       type="fill"
       bgColor="black"
       color="white"
-      action={() => confirm("buy")}
+      action={()=>navigate("/checkout")}
       className="w-full font-urbanist font-bold  rounded-none py-4 uppercase"
     >
       continue to check out
