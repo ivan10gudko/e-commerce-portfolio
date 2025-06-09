@@ -49,6 +49,7 @@ export default function AttributeSelector({
                 attrId={attribute.id}
                 attrValue={v.value}
                 selected={v.value == selectedAttribute}
+                selectable={v.selectable}
               >
                 {v.displayValue}
               </AttributeValue>

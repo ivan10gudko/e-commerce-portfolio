@@ -22,6 +22,7 @@ function AttributeGroup({ attrId, attrValue, childAttributes, children }) {
             attrValue={v.value}
             group={attrId}
             groupValue={attrValue}
+            selectable={v.selectable}
           >
             {v.displayValue}
           </AttributeValue>
