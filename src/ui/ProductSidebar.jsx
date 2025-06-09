@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
 import Quantity from "./Quantity";
 import Button from "./Button";
+import toast from "react-hot-toast";
 
 function ProductSidebar(){
   const {name,addProductToCart , price ,discount} = useContext(ProductContext);
@@ -21,7 +22,11 @@ function ProductSidebar(){
         bgColor="black"
         color="white"
         className=" w-full py-4 text-xl font-semibold"
-        action={addProductToCart}
+        action={()=>{
+          addProductToCart();
+          toast.success("Product successfully added to cart")
+
+        }}
       >
         Add to Card
       </Button>

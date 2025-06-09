@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import ProductDetails from "../ui/ProductDetails";
 import ProductImageContainer from "../ui/ProductImageContainer";
 import ProductSidebar from "../ui/ProductSidebar";
@@ -6,6 +7,8 @@ import ProductSidebar from "../ui/ProductSidebar";
 function Product() {
   
   return (
+    <>
+    <Toaster />
     <div className="bg-productGray py-10">
     <div className="lg:flex ">
       <div className="w-full lg:w-3/5">
@@ -17,6 +20,7 @@ function Product() {
     </div>
     <ProductDetails/>
     </div>
+    </>
   );
 }
 
