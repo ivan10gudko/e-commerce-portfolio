@@ -18,7 +18,7 @@ function Cart() {
               {" "}
               Your Cart is Empty
             </span>
-            <Link to="/shop" className="w-fit">
+            <Link to="/shop/shop all" className="w-fit">
               <Button
                 type="fill"
                 bgColor="black"
