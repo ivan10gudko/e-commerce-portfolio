@@ -64,7 +64,7 @@ function PaymentSelect({handleChange,cardData,setCardData}) {
             Card number
           </Input>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 md:gap-4 my-1 *:*:my-2">
             <Input
               type="text"
               name="expiry"

@@ -13,7 +13,7 @@ export default function Checkout(){
         <Toaster/>
         <ScrollToTop/>
         <CheckoutHeader/>
-        <div className="flex ">
+        <div className="flex flex-col-reverse md:flex-row">
         <div className="px-4 md:px-14 lg:pl-20 lg:pr-10 pt-8 border w-full lg:w-3/5">
         <CheckoutForm deliveryPrice={deliveryPrice} setDeliveryPrice={setDeliveryPrice}/>
         <CheckoutFooter/>

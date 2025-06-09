@@ -151,14 +151,14 @@ function CheckoutForm({deliveryPrice,setDeliveryPrice}) {
                 <Checkbox name="email-news-subscription" checked>Email me with news and offers</Checkbox>
             </Fieldset>
             <Fieldset title="Delivery">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 md:gap-4 my-1 *:*:my-1">
                 <Input name="firstname" handleChange={(v)=>setFormData(data=>({...data,customer:{...data.customer,firstName:v}}))}>First name(optional)</Input>
                 <Input name="lastname" required handleChange={(v)=>setFormData(data=>({...data,customer:{...data.customer,lastName:v}}))}>Last name</Input>
             </div>
             <CountrySelect selectedCountry={formData.shippingAddress.country} handleChange={(v)=>setFormData(data=>({...data,shippingAddress:{...data.shippingAddress,country:v}}))}/>
             <Input name="company" required handleChange={(v)=>setFormData(data=>({...data,shippingAddress:{...data.shippingAddress,company:v}}))}>Company (optional)</Input>
             <Input name="address" required handleChange={(v)=>setFormData(data=>({...data,shippingAddress:{...data.shippingAddress,address:v}}))}>Address</Input>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 md:gap-4 my-1 *:*:my-1">
                 <Input name="city" required handleChange={(v)=>setFormData(data=>({...data,shippingAddress:{...data.shippingAddress,city:v}}))}>City</Input>
                 <Input name="postal-code" required handleChange={(v)=>setFormData(data=>({...data,shippingAddress:{...data.shippingAddress,zip:v}}))}>Postal code</Input>
             </div>
