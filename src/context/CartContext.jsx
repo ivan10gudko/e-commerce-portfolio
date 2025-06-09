@@ -28,7 +28,7 @@ function valide(product) {
 
   if (
     typeof product.image !== "string" ||
-    typeof product.id !== "number" ||
+    typeof product.id !== "string" ||
     typeof product.quantity !== "number" ||
     typeof product.productId !== "number"||
     typeof product.selectedAttributes !== "object"
