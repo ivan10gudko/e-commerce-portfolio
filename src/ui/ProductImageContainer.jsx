@@ -10,7 +10,7 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import ThumbPagination from "./ThumbPagination";
 import { useContext, useRef, useState } from "react";
 import ModalImage from "./ModalImage";
-import { ProductContext } from "../context/productContext";
+import { ProductContext } from "../context/ProductContext";
 function ProductImageContainer() {
   const {images} = useContext(ProductContext);
 

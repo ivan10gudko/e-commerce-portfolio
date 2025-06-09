@@ -1,6 +1,6 @@
 import CloseIcon from '@mui/icons-material/Close';
 import Button from "./Button";
-import { ProductContext } from '../context/productContext';
+import { ProductContext } from '../context/ProductContext';
 import { useContext } from 'react';
 function ModalImage({ image, alt, setIsOpen }) {
   const {name} = useContext(ProductContext);

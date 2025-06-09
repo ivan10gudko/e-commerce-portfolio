@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import AttributeSelector from "./AttributeSelector";
-import { ProductContext } from "../context/productContext";
+import { ProductContext } from "../context/ProductContext";
 
 function ProductAttributes() {
   const {attributes, selectedAttributes } = useContext(ProductContext);

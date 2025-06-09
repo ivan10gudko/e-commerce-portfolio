@@ -2,7 +2,7 @@ import ProductAttributes from "./ProductAttributes";
 import Price from "./Price";
 import ProductTitle from "./ProductTitle";
 import { useContext } from "react";
-import { ProductContext } from "../context/productContext";
+import { ProductContext } from "../context/ProductContext";
 import Quantity from "./Quantity";
 import Button from "./Button";
 

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ProductContext } from "../context/productContext";
+import { ProductContext } from "../context/ProductContext";
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
 import NotInterestedIcon from '@mui/icons-material/NotInterested';
 

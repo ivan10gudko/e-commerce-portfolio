@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ProductContext } from "../context/productContext";
+import { ProductContext } from "../context/ProductContext";
 import { useDiscount } from "../hooks/useDiscount";
 
 function Price({price,discountId,card}) {

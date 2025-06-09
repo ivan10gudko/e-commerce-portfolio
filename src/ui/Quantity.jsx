@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Button from "./Button";
-import { ProductContext } from "../context/productContext";
+import { ProductContext } from "../context/ProductContext";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 

@@ -8,7 +8,7 @@ import {
   NavigateNextRounded,
 } from "@mui/icons-material";
 import { useContext } from "react";
-import { ProductContext } from "../context/productContext";
+import { ProductContext } from "../context/ProductContext";
 
 function ThumbPagination({ setThumbsSwiper, parentSwiper }) {
   const { images } = useContext(ProductContext);

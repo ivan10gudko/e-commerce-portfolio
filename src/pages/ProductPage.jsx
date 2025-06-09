@@ -2,7 +2,7 @@ import { BounceLoader } from "react-spinners";
 import { useProduct } from "../hooks/useProduct";
 import { useParams } from "react-router";
 import ErrorProduct from "../ui/ErrorProduct";
-import { ProductContext } from "../context/productContext";
+import { ProductContext } from "../context/ProductContext";
 import Product from "./Product";
 import { useEffect, useState } from "react";
 import { getVariant } from "../services/productsAPI";
